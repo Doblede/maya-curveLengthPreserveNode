@@ -1,0 +1,40 @@
+//
+//  Procedure Name:
+//  AECurveLengthPreserveNodeTemplate
+//
+//  Description Name:
+//  Creates the attribute editor controls for the CurveLengthPreserveNode
+//
+// Author:
+//  David De Juan
+//
+
+global proc AECurveLengthPreserveNodeTemplate( string $nodeName )
+{
+    // START TEMPLATE
+    editorTemplate -beginScrollLayout;
+
+        // PERFORMANCE ATTRIBUTES
+        // We put the parallel threshold first or in its own group so it's easy to find
+        editorTemplate -beginLayout "Performance Settings" -collapse 0;
+            editorTemplate -addControl "parallelThreshold";
+        editorTemplate -endLayout;
+
+        // NODE ATTRIBUTES (Default Maya Node stuff)
+        // This command adds standard dependency node attributes like 'Node State'
+        AEdependNodeTemplate $nodeName;
+
+        // SUPPRESS ATTRIBUTES
+        // Hide the array attributes. We don't want the user trying to manually edit 
+        // the input/goal/output curve connections in the AE, as the command handles that.
+        editorTemplate -suppress "inputCurves";
+        editorTemplate -suppress "goalCurves";
+        editorTemplate -suppress "outputCurves";
+        
+        // This catches any other attributes (like standard MPxNode attributes)
+        // that we haven't explicitly laid out or suppressed.
+        editorTemplate -addExtraControls;
+
+    // END TEMPLATE
+    editorTemplate -endScrollLayout;
+}
