@@ -6,14 +6,14 @@ MStatus initializePlugin(MObject obj) {
     MStatus stat;
 
     stat = plugin.registerNode(
-        "CurveLengthPreserveNode", 
+        "curveLengthPreserveNode", 
         CurveLengthPreserveNode::id, 
         CurveLengthPreserveNode::creator, 
         CurveLengthPreserveNode::initialize, 
         MPxNode::kDependNode
     );
     if (!stat) {
-        stat.perror("Failed to register node: CurveLengthPreserveNode");
+        stat.perror("Failed to register node: curveLengthPreserveNode");
         return stat;
     }
 
@@ -34,7 +34,7 @@ MStatus uninitializePlugin(MObject obj) {
     MStatus stat;
 
     stat = plugin.deregisterNode(CurveLengthPreserveNode::id);
-    if (!stat) stat.perror("Failed to deregister node: CurveLengthPreserveNode");
+    if (!stat) stat.perror("Failed to deregister node: curveLengthPreserveNode");
 
     stat = plugin.deregisterCommand("createLengthPreserve");
     if (!stat) stat.perror("Failed to deregister command: createLengthPreserve");

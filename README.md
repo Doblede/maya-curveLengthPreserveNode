@@ -5,7 +5,7 @@ An Autodesk Maya C++ deformer plugin that implements length-preserving constrain
 ---
 
 ## 📖 Overview
-This plugin provides a specialized Maya dependency node designed to maintain the structural integrity of NURBS curves when subjected to deformation[cite: 1, 2, 3]. By calculating and enforcing distances between control vertices (CVs) based on a reference rest shape, the `CurveLengthPreserveNode` prevents the unwanted stretching or shrinking artifacts often encountered in standard curve animation workflows.
+This plugin provides a specialized Maya dependency node designed to maintain the structural integrity of NURBS curves when subjected to deformation[cite: 1, 2, 3]. By calculating and enforcing distances between control vertices (CVs) based on a reference rest shape, the `curveLengthPreserveNode` prevents the unwanted stretching or shrinking artifacts often encountered in standard curve animation workflows.
 
 ## ✨ Core Features
 
